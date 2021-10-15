@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="container">
       <Header />
-      <div className="row">
+      <div className="row px-2">
         <Menu />
         <Content />
       </div>

@@ -3,7 +3,7 @@ import React from "react";
 export const Header = ()=>{
   return(
     <header>
-      <div className="container-fluid">
+      <div className="container-fluid p-0">
         <div className="container">
           <div className="row justify-content-between">
             <div className="logo col-3 d-flex flex-column justify-content-center align-items-center py-3">

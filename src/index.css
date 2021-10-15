@@ -18,6 +18,7 @@ code {
     background-color: #eedea3;
     text-align: center;
     border-radius: 0px 0px 5px 5px;
+    width: 73.3%
 }
 
 .logo{
@@ -93,10 +94,11 @@ code {
     transform: rotate(180deg);
 }
 .menu-animations-outside, .menu-animations-outside img, .content-animations-outside{
+
     transition: all ease .5s;
 }
 .animations-content{
-    width: 92%;
+    width: 97%;
     transition: all ease .5s;
 }
 
@@ -114,4 +116,12 @@ code {
 }
 .detalles-usuario{
     min-height: 26rem;
+}
+.btn-add-user{
+    background-color: #59b392;
+    color: #fff;
+}
+.btn-add-user:hover{
+    background-color: #4e9b7f;
+    color: #fff;
 }

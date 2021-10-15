@@ -20,7 +20,7 @@ export const Usuarios = ()=>{
           <button type="button" className="btn btn-warning my-2" data-bs-toggle="modal" data-bs-target="#addUser">Agregar Usuario</button>
 
           {/* <!-- Modal --> */}
-          <div className="modal fade" id="addUser" tabindex="-1" aria-labelledby="addUserLabel" aria-hidden="true">
+          <div className="modal fade" id="addUser" tabIndex="-1" aria-labelledby="addUserLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered">
               <div className="modal-content">
                 <div className="modal-header">
@@ -75,7 +75,7 @@ export const Usuarios = ()=>{
                   </div>
                   <div className="modal-footer">
                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button id="send-user" type="submit" className="btn" data-bs-dismiss="modal">Agregar Usuario</button>
+                    <button id="send-user" type="submit" className="btn btn-add-user" data-bs-dismiss="modal">Agregar Usuario</button>
                   </div>
                 </form>
               </div>
@@ -92,7 +92,6 @@ export const Usuarios = ()=>{
           </table>
           <button className="d-none btn btn-warning my-2" id="btn-save-data"><h5 className="m-0">Guardar</h5></button>
         </div>
-
       </div>
     </div>
   )
