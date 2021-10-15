@@ -4,7 +4,7 @@ import {Header} from './components/Header'
 import {Menu} from './components/Menu'
 import {Content} from './components/Content'
 
-document.addEventListener('DOMContentLoaded', e  =>{
+document.addEventListener('DOMContentLoaded', ()  =>{
   const btnMenu = document.getElementById('btn-drop-menu')
   const menu = document.getElementById('menu')
   const content = document.getElementById('content')
@@ -24,8 +24,10 @@ document.addEventListener('DOMContentLoaded', e  =>{
   }
 })
 
+
 function App() {
   return (
+
     <div className="container">
       <Header />
       <div className="row px-2">

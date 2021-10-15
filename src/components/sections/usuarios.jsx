@@ -1,4 +1,18 @@
 import React from "react";
+import { agregarDocumento, consultarDb, consultarDocumentoDb, actualizarDocumentoDb, eliminarDocumentoDb } from "../config/firebase";
+
+const data = {
+  nombre: 'sara',
+}
+
+
+document.addEventListener('DOMContentLoaded', async ()=>{
+  // agregarDocumento('usuarios', data)
+  // console.log(await consultarDb('usuarios'));
+  // console.log(await consultarDocumentoDb('usuarios', '1'));
+  // actualizarDocumentoDb('usuarios', "kMlsj9sSvxsbZ3LDamXr", data)
+  // eliminarDocumentoDb('usuarios', 'kMlsj9sSvxsbZ3LDamXr')
+})
 
 export const Usuarios = ()=>{
   return(
