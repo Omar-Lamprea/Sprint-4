@@ -1,10 +1,5 @@
 import React from "react";
-import { agregarDocumento, consultarDb, consultarDocumentoDb, actualizarDocumentoDb, eliminarDocumentoDb } from "../config/firebase";
-
-const data = {
-  nombre: 'sara',
-}
-
+// import { agregarDocumento, consultarDb, consultarDocumentoDb, actualizarDocumentoDb, eliminarDocumentoDb } from "../config/firebase";
 
 document.addEventListener('DOMContentLoaded', async ()=>{
   // agregarDocumento('usuarios', data)
