@@ -9,7 +9,7 @@ export const Content = ()=>{
       <div className="row justify-content-end">
         <div className="col-11 content d-flex flex-column justify-content-center">
           {/* agregar paginas acá */}
-            {/* <Usuarios/> */}
+            <Usuarios/>
         </div>
       </div>
     </div>
