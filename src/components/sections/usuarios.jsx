@@ -4,8 +4,9 @@ import {
   consultarDb, 
   consultarDocumentoDb, 
   agregarDocumento, 
+  agregarDocumentoId,
   actualizarDocumentoDb, 
-  eliminarDocumentoDb 
+  eliminarDocumentoDb, 
 } from "../config/firebase";
 
   // agregarDocumento('usuarios', data)
@@ -80,7 +81,7 @@ export const Usuarios = ()=>{
 
 
     if(dataUser[0] !== '' && dataUser[1] !== '' && dataUser[2] !== '' && dataUser[3] !== '' && dataUser[4] !== ''){
-      agregarDocumento('usuarios', template, template.id).then(()=>{
+      agregarDocumentoId('usuarios', template, template.id).then(()=>{
         for (let i = 0; i < addUserForm.length; i++){
           addUserForm[i].value = ''
         }
