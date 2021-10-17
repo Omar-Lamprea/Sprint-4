@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 //métodos:
-import { query, addDoc, collection, getDocs, getDoc, doc, updateDoc, deleteDoc} from "firebase/firestore";
+import { query, addDoc, setDoc, collection, getDocs, getDoc, doc, updateDoc, deleteDoc} from "firebase/firestore";
 
  const firebaseConfig = {
   apiKey: "AIzaSyC7WRbMMBb_w-eAOCxQRr-Dj3XTlS4Hmgs",
@@ -25,11 +25,11 @@ initializeApp(firebaseConfig);
   // const auth = getAuth()
 
 
-  //agregar documento: recibe nombre y objeto data
-  export const agregarDocumento = async(nombreColeccion, data) =>{
+  //agregar documento: recibe nombre, objeto data y id
+  export const agregarDocumento = async(nombreColeccion, data, id) =>{
     try{
-      const response = await addDoc(collection(database, nombreColeccion),data)
-      console.log(response);
+      const response = await setDoc(doc(database, nombreColeccion, id),data)
+      // console.log(response);
     }catch(error){
       console.log(error);
     }
