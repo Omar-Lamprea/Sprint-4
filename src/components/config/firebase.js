@@ -18,6 +18,8 @@ import { query, addDoc, setDoc, collection, getDocs, getDoc, doc, updateDoc, del
   // Initialize Firebase
 initializeApp(firebaseConfig);
 
+  // Create a root reference
+
   //initialize firestore database 
   const database = getFirestore()
 
