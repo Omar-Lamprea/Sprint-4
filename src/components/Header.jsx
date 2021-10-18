@@ -15,7 +15,7 @@ export const Header = ()=>{
 
             <div className=" col-8 py-3 d-flex justify-content-between align-items-center header">
               <img src="./img/three-stars.png" alt="stars" width="40" />
-              <h1 className="m-0">slogan..</h1>
+              <div className="m-0 h2">Where you can find the best meals ...❤</div>
               <div className="user d-flex flex-column justify-content-center align-items-center">
                 <img src="./img/profile-user.png" alt="User" width="40" />
                 <a href="/"><button className="btn btn-danger mt-2" id="btn-logout">Cerrar Sesión</button></a>

@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,11 +10,12 @@ import {
 } from "react-router-dom";
 
 export const Menu = ()=>{
-  let history = useHistory()
-  const irUsuarios = (e) => {
-    e.preventDefault()
-    history.push("/usuarios")
-  }
+
+  // // // let history = useHistory()
+  // // // const irUsuarios = (e) => {
+  // // //   e.preventDefault()
+  // // //   history.push("/usuarios")
+  // // // }
 
   return (
     <div id="menu" className="menu col-3 menu-animations-outside">
@@ -26,8 +28,8 @@ export const Menu = ()=>{
           <h2>Ventas</h2>
           <ul>
             <li><Link to="/ventas">Ventas Realizadas JAAA</Link></li>
-              <li><Link to={"/usuarios"}>Usuarios</Link></li>
-              <a onClick={irUsuarios} href="#"><li>Ventas Realizadas B</li></a>
+            <li><Link to="/productos">Productos</Link></li>
+            {/* <a onClick={irUsuarios} href="#"><li>Ventas Realizadas B</li></a> */}
             <a href="ventasRealizadas.html"><li>Ventas Re gti alizadas</li></a>
             <a href="ventasRealizadas.html"><li>Ventas Re gti alizadas</li></a>
             <a href="registrar_venta.html"><li>Registrar Ventas</li></a>

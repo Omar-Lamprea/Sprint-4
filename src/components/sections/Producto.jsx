@@ -81,7 +81,7 @@ export const Producto = () => {
                 <form>
                   <div className="mb-3">
                     <span>
-                      <i class="fa fa-coffee"></i>
+                      <i className="fa fa-coffee"></i>
                     </span>
                     <label className="form-label ms-2">Nombre Producto</label>
                     <input
@@ -94,7 +94,7 @@ export const Producto = () => {
                   </div>
                   <div className="mb-3">
                     <span>
-                      <i class="fa fa-clipboard"></i>
+                      <i className="fa fa-clipboard"></i>
                     </span>
                     <label className="form-label ms-2">Descripción</label>
                     <input
@@ -107,7 +107,7 @@ export const Producto = () => {
                   </div>
                   <div className="mb-3">
                     <span>
-                      <i class="fa fa-tags"></i>
+                      <i className="fa fa-tags"></i>
                     </span>
                     <label className="form-label ms-2">Precio</label>
                     <input
