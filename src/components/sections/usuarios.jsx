@@ -85,23 +85,40 @@ export const Usuarios = ()=>{
   }
 
   //consultar usuario
+  const detail = []
+
   async function userDetails(e){
     const logoUser = document.getElementById('img-details')
+    const btnSave = document.getElementById('btn-save-data')
+    const title = document.getElementById('user-name')
+    const dataTable = document.getElementById('user-details')
+
     const id = e.target.id
-
+    
     const response = await consultarDocumentoDb('usuarios', id)
-    console.log(response);
+    console.log(response.nombre);
+    
+    const tdNombre = document.getElementById('tdNombre')
+    const tdCc = document.getElementById('tdCc')
+    const tdEmail = document.getElementById('tdEmail')
+    const tdTel = document.getElementById('tdTel')
+    const tdCiudad = document.getElementById('tdCiudad')
 
-    const user = true
+  
 
-    if(user){
-      logoUser.classList.add('d-none')
-      return <Usuario />
-    }else{
-      logoUser.classList.remove('d-none')
-    }
+    title.innerHTML = response.nombre
+    tdNombre.innerHTML = response.nombre
+    tdCc.innerHTML = response.cedula
+    tdEmail.innerHTML = response.email
+    tdTel.innerHTML = response.telefono
+    tdCiudad.innerHTML = response.ciudad
+
+    dataTable.classList.remove('d-none')
+    logoUser.classList.add('d-none')
+    btnSave.classList.remove('d-none')
+
+    return response.nombre
   }
-
 
   return(
     <div className="row text-center justify-content-between">
@@ -195,12 +212,52 @@ export const Usuarios = ()=>{
         <div className="detalles-usuario border rounded d-flex flex-column justify-content-around align-items-center">
           <h4 id="user-name" className="my-2">Detalles de Usuario</h4>
           <img id="img-details" className="m-4" src="./img/logo2.png" alt="usuarios" width="150"/>
-          
-          <table id="user-details" className="table">
-            {/* <userDetails user ={false}/> */}
+
+          <table id="user-details" className="table d-none">
+            <tbody>
+              <tr>
+                <th>Nombre</th>
+                <td id='tdNombre'>nombre</td>
+              </tr>
+              <tr>
+                <th>Cédula</th>
+                <td id='tdCc'>cc</td>
+              </tr>
+              <tr>
+                <th>Email</th>
+                <td id='tdEmail'>email</td>
+              </tr>
+              <tr>
+                <th>Tel</th>
+                <td id='tdTel'>tel</td>
+              </tr>
+              <tr>
+                <th>Ciudad</th>
+                <td id='tdCiudad'>ciudad</td>
+              </tr>
+              <tr>
+                <th>Estado</th>
+                <td>
+                  <select name="estado" id="estado">
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="Disponible">Disponible</option>
+                    <option value="Aprobado">Aprobado</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>Rol</th>
+                <td>
+                  <select name="rol" id="rol">
+                    <option value="Administrador">Administrador</option>
+                    <option value="Vendedor">Vendedor</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
           </table>
 
-          <Usuario/>
+          {/* <Usuario/> */}
 
           <button className="d-none btn btn-warning my-2" id="btn-save-data"><h5 className="m-0">Guardar</h5></button>
         </div>
