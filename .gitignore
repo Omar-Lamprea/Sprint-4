@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+*.orig
+
 # testing
 /coverage
 
@@ -44,4 +46,6 @@ yarn-error.log*
 logs
 **/*.backup.*
 **/*.back.*
+
+
 
