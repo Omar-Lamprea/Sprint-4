@@ -28,7 +28,7 @@ initializeApp(firebaseConfig);
 
 
   //agregar documento: recibe nombre, objeto data y id
-  export const agregarDocumento = async(nombreColeccion, data, id) =>{
+  export const agregarDocumentoId = async(nombreColeccion, data, id) =>{
     try{
       const response = await setDoc(doc(database, nombreColeccion, id),data)
       // console.log(response);
@@ -36,6 +36,16 @@ initializeApp(firebaseConfig);
       console.log(error);
     }
   }
+
+    //agregar documento: recibe nombre, objeto data
+    export const agregarDocumento = async(nombreColeccion, data) =>{
+      try{
+        const response = await addDoc(collection(database, nombreColeccion),data)
+        // console.log(response);
+      }catch(error){
+        console.log(error);
+      }
+    }
 
   //leer base de datos: recibe nombre
   export const consultarDb = async(nombreColeccion) =>{

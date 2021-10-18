@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router, 
   Route, 
   Switch } from "react-router-dom";
+import { Usuarios } from "./sections/Usuarios";
 
 import { Productos } from "./sections/Productos";
 import { Producto } from "./sections/Producto";
@@ -18,6 +19,8 @@ export const Content = () => {
               <Route exact path="/productos" component={Productos} />
             </Switch>
           </Router>
+          {/* agregar paginas acá */}
+            <Usuarios/>
         </div>
       </div>
     </div>
