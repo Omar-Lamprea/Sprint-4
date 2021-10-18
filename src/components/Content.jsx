@@ -1,5 +1,5 @@
 import React from "react";
-import { Usuarios } from "./sections/usuarios";
+import { Usuarios } from "./sections/Usuarios";
 
 
 

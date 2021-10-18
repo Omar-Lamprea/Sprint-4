@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import Usuario from './Usuario'
 
 import {
   consultarDb, 
   consultarDocumentoDb, 
-  agregarDocumento, 
+  // agregarDocumento, 
   agregarDocumentoId,
   actualizarDocumentoDb, 
-  eliminarDocumentoDb, 
+  // eliminarDocumentoDb, 
 } from "../config/firebase";
 
   // agregarDocumento('usuarios', data)
@@ -16,8 +17,6 @@ import {
   // eliminarDocumentoDb('usuarios', 'kMlsj9sSvxsbZ3LDamXr')
 
 export const Usuarios = ()=>{
-
-  
 
   const styleUsers = {
     'cursor' : 'pointer'
@@ -33,13 +32,6 @@ export const Usuarios = ()=>{
   const getData = async () =>{
     const response = await consultarDb('usuarios')
     setUsers(response)
-  }
-
-  //consultar usuario
-  async function userDetails(e){
-    const id = e.target.id
-    const response = await consultarDocumentoDb('usuarios', id)
-    console.log(response);
   }
 
   //agregar usuario
@@ -89,6 +81,24 @@ export const Usuarios = ()=>{
       })
     }else{
       alert('debes llenar todos los campos')
+    }
+  }
+
+  //consultar usuario
+  async function userDetails(e){
+    const logoUser = document.getElementById('img-details')
+    const id = e.target.id
+
+    const response = await consultarDocumentoDb('usuarios', id)
+    console.log(response);
+
+    const user = true
+
+    if(user){
+      logoUser.classList.add('d-none')
+      return <Usuario />
+    }else{
+      logoUser.classList.remove('d-none')
     }
   }
 
@@ -187,11 +197,10 @@ export const Usuarios = ()=>{
           <img id="img-details" className="m-4" src="./img/logo2.png" alt="usuarios" width="150"/>
           
           <table id="user-details" className="table">
-            {/* <tr>
-              <th>Nombre</th>
-              <tbody>{name}</tbody>
-            </tr> */}
+            {/* <userDetails user ={false}/> */}
           </table>
+
+          <Usuario/>
 
           <button className="d-none btn btn-warning my-2" id="btn-save-data"><h5 className="m-0">Guardar</h5></button>
         </div>
