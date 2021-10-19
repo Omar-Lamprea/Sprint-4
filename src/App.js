@@ -11,7 +11,8 @@ import { Productos } from './components/sections/Productos';
 import { Usuarios } from './components/sections/Usuarios';
 import { Dashboard } from './components/sections/Dashboard';
 import { Login } from './components/sections/Login';
-import { Ventas } from './components/sections/Ventas';
+import { VentasRealizadas } from "./components/sections/VentasRealizadas";
+import { VentaRegistrar } from "./components/sections/VentaRegistrar";
 
   document.addEventListener('DOMContentLoaded', ()  =>{
   const btnMenu = document.getElementById('btn-drop-menu')
@@ -52,10 +53,10 @@ function App() {
                   {/* <Link to="/ventas">
                     <li>Ventas Realizadas</li>
                   </Link> */}
-                  <Link to="/productos">
+                  <Link to="/ventas-realizadas">
                     <li>Ventas Realizadas</li>
                   </Link>
-                  <Link to="/productos/create">
+                  <Link to="/ventas-registrar">
                     <li>Registrar Venta</li>
                   </Link>
                 </ul>
@@ -69,12 +70,6 @@ function App() {
                   <Link to="/productos/create">
                     <li>Registrar Productos</li>
                   </Link>
-                  {/* <a href="listarproductos.html">
-                    <li>Productos</li>
-                  </a>
-                  <a href="productoRegistrar.html">
-                    <li>Registrar Productos</li>
-                  </a> */}
                 </ul>
               </div>
               <div className="col-12">
@@ -98,14 +93,13 @@ function App() {
                 <Switch>
                   <Route exact path="/productos/:id" component={Producto} />
                   <Route exact path="/productos" component={Productos} />
+                  <Route exact path="/ventas-realizadas" component={VentasRealizadas} />
+                  <Route exact path="/ventas-registrar/:id?" component={VentaRegistrar} />
                   {/* <Route path="/productos">
                     <Productos />
                   </Route> */}
                   <Route path="/usuarios">
                     <Usuarios />
-                  </Route>
-                  <Route path="/ventas">
-                    <Ventas />
                   </Route>
                   <Route path="/">
                     <Login />
