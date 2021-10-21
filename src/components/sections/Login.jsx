@@ -10,13 +10,15 @@ import {
 } from "firebase/auth";
 import "./Login.css";
 
-export const Login = () => {
+export const Login = (props) => {
   const auth = getAuth();
   let usuario;
+  const [registrado, setRegistrado] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const crearUsuario = async (e) => {
+
+  const createUsuario = async (e) => {
     e.preventDefault();
     try {
       const userCredential = await createUserWithEmailAndPassword(
@@ -45,13 +47,14 @@ export const Login = () => {
         email,
         password
       ).then((userCredential) => {
+        props.setUsuario(userCredential)
         const user = {
           id: userCredential.user.uid,
           email: userCredential.user.email,
         };
         console.log(user);
-        console.log(userCredential);
         return user;
+        
       });
     } catch (e) {
       console.log(e);
@@ -77,18 +80,20 @@ export const Login = () => {
       usuario = undefined;
     }
   });
+
   return (
     <div>
       <div className="container">
         <div className="row">
           <div className="col-md-6 offset-md-3">
             <div className="login-form d-flex-inline">
-              <form>
+              <form onSubmit={loginUsuario}>
                 <fieldset>
                   <div className="form-group mt-2">
                     <label>Email</label>
                     <input
                       type="email"
+                      id="email"
                       className="form-control"
                       placeholder="Ingresar email"
                       onChange={(e) => setEmail(e.target.value)}
@@ -99,6 +104,7 @@ export const Login = () => {
                     <label>Contraseña</label>
                     <input
                       type="password"
+                      id="password"
                       className="form-control"
                       placeholder="Ingresar contraseña"
                       onChange={(e) => setPassword(e.target.value)}
@@ -107,16 +113,10 @@ export const Login = () => {
                   </div>
                   <div className="text-center">
                     <button
+                      type="submit"
                       className="btn btn-primary mt-4 me-2"
-                      onClick={loginUsuario}
-                    >
-                      Iniciar Sesión
-                    </button>
-                    <button
-                      className="btn btn-primary mt-4"
-                      onClick={logOutUsuario}
-                    >
-                      salir
+                      onChange={ () => setRegistrado(!registrado)}
+                    >{ registrado ? "Regístrate" : "Iniciar sesión" } 
                     </button>
                   </div>
                 </fieldset>
