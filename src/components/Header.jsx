@@ -1,6 +1,22 @@
 import React from "react";
+import { getAuth, signOut } from 'firebase/auth';
+import { useHistory } from "react-router";
+
 
 export const Header = ()=>{
+
+  const salir = useHistory();
+  const auth = getAuth();
+  const logOutUsuario = async (e) => {
+    e.preventDefault();
+    try {
+      const respuesta = await signOut(auth);
+      console.log(respuesta);
+    } catch (e) {
+      throw new Error(e);
+    }
+  };
+
   return(
     <header>
       <div className="container-fluid p-0">
@@ -18,7 +34,7 @@ export const Header = ()=>{
               <div className="m-0 h2">Where you can find the best meals ...❤</div>
               <div className="user d-flex flex-column justify-content-center align-items-center">
                 <img src="./img/profile-user.png" alt="User" width="40" />
-                <a href="/"><button className="btn btn-danger mt-2" id="btn-logout">Cerrar Sesión</button></a>
+                <a><button className="btn btn-danger mt-2" id="btn-logout" onClick={logOutUsuario}>Cerrar Sesión</button></a>
               </div>
             </div>
           </div>
