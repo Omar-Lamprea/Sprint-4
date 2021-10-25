@@ -52,7 +52,7 @@ export const Login = (props) => {
           id: userCredential.user.uid,
           email: userCredential.user.email,
         };
-        console.log(user);
+        console.log(userCredential);
         return user;
         
       });
@@ -82,7 +82,7 @@ export const Login = (props) => {
   });
 
   return (
-    <div>
+    <div className="overlay">
       <div className="container">
         <div className="row">
           <div className="col-md-6 offset-md-3">

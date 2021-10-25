@@ -147,7 +147,7 @@ function App() {
 
   // // >>>>>>> origin/login
 
-  } , [])
+  } , [setUsuario])
   return <>{ usuario ? <Home /> : <Login setUsuario={setUsuario} />}</>
 }
 export default App;

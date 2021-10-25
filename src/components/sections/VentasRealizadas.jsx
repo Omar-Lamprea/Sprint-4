@@ -14,7 +14,7 @@ export const VentasRealizadas = () => {
     
     return (
         <>
-         <h2>Ventas Realizadas</h2> 
+         <h2 className="text-center">Ventas Realizadas</h2> 
       
           
           
@@ -24,7 +24,7 @@ export const VentasRealizadas = () => {
                   
                   <div className="col-12 col-md-12 my-2">
                     <div className="container-ventas border rounded" >
-                      <h4 className="my-2">Ventas</h4>
+                      {/* <h4 className="my-2">Ventas</h4> */}
                       <table className="table m-auto">
                         <thead>
                           <tr>
