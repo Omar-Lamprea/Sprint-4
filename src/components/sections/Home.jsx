@@ -13,6 +13,22 @@ import { signOut, getAuth } from 'firebase/auth';
 
 export const Home = () => {
 
+    const menu = document.getElementById('menu')
+    const content = document.getElementById('content')
+
+    function dropMenu(){
+      menu.classList.toggle('animations-menu')
+      menu.classList.toggle('menu-animations-outside')
+      
+      if(menu.classList.contains('animations-menu')){
+        content.classList.add('animations-content')
+        content.classList.remove('content-animations-outside')
+      }else{
+        content.classList.remove('animations-content')
+        content.classList.add('content-animations-outside')
+      }
+    }
+
   return (
     <div className="container">
       <Header />
@@ -20,7 +36,7 @@ export const Home = () => {
         {/* <Menu /> */}
         <Router>
           <div id="menu" className="menu col-3 menu-animations-outside">
-            <button id="btn-drop-menu" className="drop-menu">
+            <button onClick={dropMenu} id="btn-drop-menu" className="drop-menu">
               <img src="../img/up-arrow-angle.png" alt="" width="50" />
             </button>
             <div className="row text-start justify-content-center">

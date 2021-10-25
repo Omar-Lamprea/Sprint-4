@@ -8,6 +8,7 @@ export const Header = ()=>{
   const salir = useHistory();
   const auth = getAuth();
   const logOutUsuario = async (e) => {
+    localStorage.clear()
     e.preventDefault();
     try {
       const respuesta = await signOut(auth);

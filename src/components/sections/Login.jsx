@@ -52,7 +52,8 @@ export const Login = (props) => {
           id: userCredential.user.uid,
           email: userCredential.user.email,
         };
-        console.log(userCredential);
+        localStorage.setItem('user', user.email)
+        console.log(user);
         return user;
         
       });
