@@ -283,8 +283,6 @@ export const Usuarios = ()=>{
             </tbody>
           </table>
 
-          {/* <Usuario/> */}
-
           <button className="d-none btn btn-warning my-2" id="btn-save-data"><h5 className="m-0" onClick={actualizarUsuario}>Guardar</h5></button>
         </div>
       </div>
