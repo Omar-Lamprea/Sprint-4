@@ -118,10 +118,10 @@ code {
     min-height: 26rem;
 }
 .btn-add-user{
-    background-color: #59b392;
-    color: #fff;
+    background-color: #59b392 !important;
+    color: #fff !important;
 }
 .btn-add-user:hover{
-    background-color: #4e9b7f;
+    background-color: #408169 !important;
     color: #fff;
 }

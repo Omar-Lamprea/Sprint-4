@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Usuario from './Usuario'
-
 import {
   consultarDb, 
   consultarDocumentoDb, 
@@ -54,7 +52,6 @@ export const Usuarios = ()=>{
     const addUserForm = document.querySelectorAll('input[required]')
     const selectForm = document.querySelectorAll('select[name]')
 
-
     for (let i = 0; i < addUserForm.length; i++) {
       dataUser.push(addUserForm[i].value)
     }
@@ -88,7 +85,6 @@ export const Usuarios = ()=>{
   }
 
   //consultar usuario
-  const detail = []
   const user = [];
   async function userDetails(e){
     const logoUser = document.getElementById('img-details')
@@ -99,16 +95,13 @@ export const Usuarios = ()=>{
     const id = e.target.id
     
     const response = await consultarDocumentoDb('usuarios', id)
-    console.log(response);
+    // console.log(response);
     
     const tdNombre = document.getElementById('tdNombre')
     const tdCc = document.getElementById('tdCc')
     const tdEmail = document.getElementById('tdEmail')
     const tdTel = document.getElementById('tdTel')
     const tdCiudad = document.getElementById('tdCiudad')
-
-
-   
 
     title.innerHTML = response.nombre
     tdNombre.innerHTML = response.nombre
@@ -120,7 +113,7 @@ export const Usuarios = ()=>{
     for (let i = 0; i < estado.children.length; i++) {
       if(response.estado === estado.children[i].value){
         estado.children[i].setAttribute('selected', '')
-        console.log(estado.children[i]);
+        // console.log(estado.children[i]);
       }
     }
     for (let i = 0; i < rol.children.length; i++) {
@@ -144,16 +137,11 @@ export const Usuarios = ()=>{
   }
   
   async function actualizarUsuario(){
-    console.log(estado.value)
-    console.log(rol.value)
-
     const data = {
       estado: estado.value,
       rol: rol.value
     }
-
-    console.log(user[0]);
-
+    // console.log(user[0]);
     await actualizarDocumentoDb('usuarios', user[0].id, data)
     getData()
   }
