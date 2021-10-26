@@ -18,6 +18,9 @@ import {
 
 export const Usuarios = ()=>{
 
+  const estado = document.getElementById('estado')
+  const rol = document.getElementById('rol')
+
   const styleUsers = {
     'cursor' : 'pointer'
   }
@@ -86,7 +89,7 @@ export const Usuarios = ()=>{
 
   //consultar usuario
   const detail = []
-
+  const user = [];
   async function userDetails(e){
     const logoUser = document.getElementById('img-details')
     const btnSave = document.getElementById('btn-save-data')
@@ -96,7 +99,7 @@ export const Usuarios = ()=>{
     const id = e.target.id
     
     const response = await consultarDocumentoDb('usuarios', id)
-    console.log(response.nombre);
+    console.log(response);
     
     const tdNombre = document.getElementById('tdNombre')
     const tdCc = document.getElementById('tdCc')
@@ -104,7 +107,8 @@ export const Usuarios = ()=>{
     const tdTel = document.getElementById('tdTel')
     const tdCiudad = document.getElementById('tdCiudad')
 
-  
+
+   
 
     title.innerHTML = response.nombre
     tdNombre.innerHTML = response.nombre
@@ -113,11 +117,45 @@ export const Usuarios = ()=>{
     tdTel.innerHTML = response.telefono
     tdCiudad.innerHTML = response.ciudad
 
+    for (let i = 0; i < estado.children.length; i++) {
+      if(response.estado === estado.children[i].value){
+        estado.children[i].setAttribute('selected', '')
+        console.log(estado.children[i]);
+      }
+    }
+    for (let i = 0; i < rol.children.length; i++) {
+      if(response.rol === rol.children[i].value){
+        // console.log(rol.children[i].value);
+        rol.children[i].setAttribute('selected', '')
+      }
+    }
+
     dataTable.classList.remove('d-none')
     logoUser.classList.add('d-none')
     btnSave.classList.remove('d-none')
 
+    if(user.length === 0){
+      user.push(response) 
+    }else{
+      user.splice(0)
+      user.push(response) 
+    }
     return response.nombre
+  }
+  
+  async function actualizarUsuario(){
+    console.log(estado.value)
+    console.log(rol.value)
+
+    const data = {
+      estado: estado.value,
+      rol: rol.value
+    }
+
+    console.log(user[0]);
+
+    await actualizarDocumentoDb('usuarios', user[0].id, data)
+    getData()
   }
 
   return(
@@ -259,7 +297,7 @@ export const Usuarios = ()=>{
 
           {/* <Usuario/> */}
 
-          <button className="d-none btn btn-warning my-2" id="btn-save-data"><h5 className="m-0">Guardar</h5></button>
+          <button className="d-none btn btn-warning my-2" id="btn-save-data"><h5 className="m-0" onClick={actualizarUsuario}>Guardar</h5></button>
         </div>
       </div>
     </div>
