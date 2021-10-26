@@ -9,9 +9,18 @@ import { Productos } from "./Productos";
 import {VentasRealizadas} from './VentasRealizadas'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { signOut, getAuth } from 'firebase/auth';
+import {Dashboard} from './Dashboard'
 
 
 export const Home = () => {
+
+  const dashboard = {
+    'backgroundImage': 'url(https://cdn.pixabay.com/photo/2015/03/26/10/28/restaurant-691397_960_720.jpg)',
+    'height': '95%',
+    'backgroundRepeat': 'no-repeat',
+    'backgroundPosition': 'center',
+    'backgroundSize': 'cover',
+  }
 
     const menu = document.getElementById('menu')
     const content = document.getElementById('content')
@@ -102,7 +111,7 @@ export const Home = () => {
                     <VentasRealizadas />
                   </Route>
                   <Route path="/">
-                    
+                    <Dashboard/>
                   </Route>
                 </Switch>
               </div>

@@ -1,6 +1,9 @@
 import React from "react";
 import { getAuth, signOut } from 'firebase/auth';
 import { useHistory } from "react-router";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+
 
 
 export const Header = ()=>{
@@ -24,9 +27,15 @@ export const Header = ()=>{
         <div className="container">
           <div className="row justify-content-between">
             <div className="logo col-3 d-flex flex-column justify-content-center align-items-center py-3">
-              <a href="dashboard.html">
-                <img src="./img/logo2.png" alt="LOGO" width="50" />
-                <h3>CodeClean Food</h3>
+              {/* <Router>
+                <Link to="/">
+                  <img src="./img/logo2.png" alt="LOGO" width="50" />
+                  <h3>CodeClean Food</h3>
+                </Link>
+              </Router> */}
+              <a href="/">
+                  <img src="./img/logo2.png" alt="LOGO" width="50" />
+                  <h3>CodeClean Food</h3>
               </a>
             </div>
 
@@ -35,7 +44,7 @@ export const Header = ()=>{
               <div className="m-0 h2">Where you can find the best meals ...❤</div>
               <div className="user d-flex flex-column justify-content-center align-items-center">
                 <img src="./img/profile-user.png" alt="User" width="40" />
-                <a><button className="btn btn-danger mt-2" id="btn-logout" onClick={logOutUsuario}>Cerrar Sesión</button></a>
+                <button className="btn btn-danger mt-2" id="btn-logout" onClick={logOutUsuario}>Cerrar Sesión</button>
               </div>
             </div>
           </div>
