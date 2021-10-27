@@ -124,6 +124,8 @@ export const Login = (props) => {
                   </div>
                 </fieldset>
               </form>
+              <p className="mb-0 mt-3">Rol Admin: admin@gmail.com / 123456</p>
+              <p>Rol Vendedor: usuario@gmail.com / usuario123</p>
             </div>
           </div>
         </div>
