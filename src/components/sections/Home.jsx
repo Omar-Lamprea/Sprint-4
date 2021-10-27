@@ -1,15 +1,16 @@
 import React from "react";
 import { Header } from "../Header";
-import { Menu } from "../Menu";
-import { Content } from "../Content";
+// import { Menu } from "../Menu";
+// import { Content } from "../Content";
 import { Producto } from "./Producto";
-import { Ventas } from "./Ventas";
+// import { Ventas } from "./Ventas";
 import { Usuarios } from "./Usuarios";
 import { Productos } from "./Productos";
 import {VentasRealizadas} from './VentasRealizadas'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { signOut, getAuth } from 'firebase/auth';
+// import { signOut, getAuth } from 'firebase/auth';
 import {Dashboard} from './Dashboard'
+import { VentasRegistrar } from './VentasRegistrar';
 
 
 export const Home = () => {
@@ -62,7 +63,7 @@ export const Home = () => {
                       <Link to="/VentasRealizadas">
                         <li>Ventas Realizadas</li>
                       </Link>
-                      <Link to="/productos/create">
+                      <Link to="/VentasRegistrar">
                         <li>Registrar Venta</li>
                       </Link>
                     </ul>
@@ -114,6 +115,9 @@ export const Home = () => {
                       <Route path="/VentasRealizadas">
                         <VentasRealizadas />
                       </Route>
+                      <Route path="/VentasRegistrar">
+                        <VentasRegistrar />
+                      </Route>
                       <Route path="/">
                         <Dashboard/>
                       </Route>
@@ -145,9 +149,9 @@ export const Home = () => {
                     <Link to="/VentasRealizadas">
                       <li>Ventas Realizadas</li>
                     </Link>
-                    <Link to="/productos/create">
-                      <li>Registrar Venta</li>
-                    </Link>
+                      <Link to="/VentasRegistrar">
+                        <li>Registrar Venta</li>
+                      </Link>
                   </ul>
                 </div>
               </div>
@@ -163,6 +167,9 @@ export const Home = () => {
                     </Route> */}
                     <Route path="/VentasRealizadas">
                       <VentasRealizadas />
+                    </Route>
+                    <Route path="/VentasRegistrar">
+                      <VentasRegistrar />
                     </Route>
                     <Route path="/">
                       <Dashboard/>
