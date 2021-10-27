@@ -6,6 +6,7 @@ import { Producto } from "./Producto";
 import { Ventas } from "./Ventas";
 import { Usuarios } from "./Usuarios";
 import { Productos } from "./Productos";
+import { VentasRegistrar } from "./VentasRegistrar";
 import {VentasRealizadas} from './VentasRealizadas'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { signOut, getAuth } from 'firebase/auth';
@@ -58,7 +59,7 @@ export const Home = () => {
                   <Link to="/VentasRealizadas">
                     <li>Ventas Realizadas</li>
                   </Link>
-                  <Link to="/productos/create">
+                  <Link to="/VentasRegistrar">
                     <li>Registrar Venta</li>
                   </Link>
                 </ul>
@@ -110,9 +111,14 @@ export const Home = () => {
                   <Route path="/VentasRealizadas">
                     <VentasRealizadas />
                   </Route>
+                  <Route path="/VentasRegistrar">
+                    <VentasRegistrar/>
+                  </Route>
                   <Route path="/">
                     <Dashboard/>
                   </Route>
+                  
+                  
                 </Switch>
               </div>
             </div>
