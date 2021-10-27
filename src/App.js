@@ -148,6 +148,14 @@ function App() {
   // // >>>>>>> origin/login
 
   } , [setUsuario])
-  return<> { usuario || localStorage.getItem('user') ? <Home /> : <Login setUsuario={setUsuario} />} </>
+  return(
+    <> 
+      { usuario || localStorage.getItem('user') 
+        ? true 
+          ? <Home /> 
+          : false
+        : <Login setUsuario={setUsuario} />} 
+    </>
+  )
 }
 export default App;
