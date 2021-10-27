@@ -148,13 +148,15 @@ function App() {
   // // >>>>>>> origin/login
 
   } , [setUsuario])
+
+  // console.log(localStorage.getItem('rol') === 'Administrador');
+
   return(
     <> 
-      { usuario || localStorage.getItem('user') 
-        ? true 
-          ? <Home /> 
-          : false
-        : <Login setUsuario={setUsuario} />} 
+      { usuario || localStorage.getItem('user')
+        ? <Home /> 
+        : <Login setUsuario={setUsuario} />
+      } 
     </>
   )
 }

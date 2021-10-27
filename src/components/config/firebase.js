@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 //métodos:
-import { query, addDoc, setDoc, collection, getDocs, getDoc, doc, updateDoc, deleteDoc} from "firebase/firestore";
+import { query, addDoc, setDoc, collection, getDocs, getDoc, doc, updateDoc, deleteDoc, where } from "firebase/firestore";
 
  const firebaseConfig = {
   apiKey: "AIzaSyC7WRbMMBb_w-eAOCxQRr-Dj3XTlS4Hmgs",
@@ -97,6 +97,27 @@ initializeApp(firebaseConfig);
       const response = await deleteDoc(doc(database, nombreColeccion, id))
       return response
     }catch(error){
+      console.log(error);
+    }
+  }
+
+
+  //consultar roles
+  export const consultarRoles = async(nombreColeccion, email) =>{
+    try {
+
+      const usuarios = await consultarDb(nombreColeccion)
+      let rol;
+      usuarios.forEach(usuario =>{
+        if(usuario.email === email){
+          // console.log(usuario.email, usuario.rol)
+          rol =  usuario.rol
+        }
+      })
+      localStorage.setItem('rol', rol)
+      return rol
+
+    } catch (error) {
       console.log(error);
     }
   }

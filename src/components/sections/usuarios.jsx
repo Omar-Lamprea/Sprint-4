@@ -6,6 +6,7 @@ import {
   agregarDocumentoId,
   actualizarDocumentoDb, 
   // eliminarDocumentoDb, 
+  consultarRoles
 } from "../config/firebase";
 
   // agregarDocumento('usuarios', data)
@@ -15,6 +16,10 @@ import {
   // eliminarDocumentoDb('usuarios', 'kMlsj9sSvxsbZ3LDamXr')
 
 export const Usuarios = ()=>{
+
+  const heightStyle = {
+    height: '100%'
+  }
 
   const estado = document.getElementById('estado')
   const rol = document.getElementById('rol')
@@ -27,6 +32,7 @@ export const Usuarios = ()=>{
 
   useEffect(() => {
     getData()
+    // consultarRoles('usuarios', 'camrosas01@gmail.com')
   },[]);
 
   //consultar db
@@ -235,7 +241,7 @@ export const Usuarios = ()=>{
       </div>
 
       <div className="col-12 col-md-7 my-2">
-        <div className="detalles-usuario border rounded d-flex flex-column justify-content-around align-items-center">
+        <div className="detalles-usuario border rounded d-flex flex-column justify-content-around align-items-center" style={heightStyle}>
           <h4 id="user-name" className="my-2">Detalles de Usuario</h4>
           <img id="img-details" className="m-4" src="./img/logo2.png" alt="usuarios" width="150"/>
 

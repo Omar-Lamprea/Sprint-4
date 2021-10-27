@@ -9,6 +9,7 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import "./Login.css";
+import {consultarRoles} from '../config/firebase'
 
 export const Login = (props) => {
   const auth = getAuth();
@@ -52,6 +53,7 @@ export const Login = (props) => {
           id: userCredential.user.uid,
           email: userCredential.user.email,
         };
+        consultarRoles('usuarios', user.email)
         localStorage.setItem('user', user.email)
         console.log(user);
         return user;
